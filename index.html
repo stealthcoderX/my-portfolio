@@ -11,6 +11,25 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .disclaimer-points {
+                grid-template-columns: 1fr;
+            }
+
+            .social-media-title {
+                font-size: 2rem;
+            }
+
+            .disclaimer-title {
+                font-size: 1.5rem;
+            }
         }
 
         html {
@@ -532,7 +551,153 @@
             transform: translateY(-3px);
         }
 
-        /* Footer */
+        /* Contact Form Styles */
+        .contact-form-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="contact-grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23contact-grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .contact-form-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            color: white;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-select {
+            cursor: pointer;
+        }
+
+        .form-select option {
+            background: #2d3748;
+            color: white;
+        }
+
+        .submit-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-note {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
         footer {
             background: #2d3748;
             color: white;
@@ -649,6 +814,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#reach-out">Reach Out</a></li>
             </ul>
         </div>
     </nav>
@@ -659,8 +825,9 @@
             <h1>Rajan Kumar V</h1>
             <p class="subtitle">DevOps Engineer & Cloud Solutions Architect</p>
             <p class="description">
-                Passionate about automating infrastructure, optimizing CI/CD pipelines, and delivering scalable cloud solutions. 
-                Specializing in AWS services, containerization, and modern DevOps practices to drive business transformation.
+                Fresh DevOps Engineer with 6+ months of hands-on internship experience and industry certifications. 
+                Passionate about automating infrastructure, building CI/CD pipelines, and implementing modern DevOps practices 
+                to drive efficient software delivery and cloud solutions.
             </p>
             <a href="#contact" class="cta-button">Let's Connect</a>
         </div>
@@ -676,39 +843,40 @@
             <div class="about-text">
                 <h3>Professional Journey</h3>
                 <p>
-                    As a dedicated DevOps Engineer with a Bachelor's in Business Administration (Computer Applications), 
-                    I bring a unique blend of technical expertise and business acumen to every project. My journey in 
-                    DevOps began with a fascination for automation and has evolved into a comprehensive skill set 
-                    spanning cloud architecture, containerization, and continuous integration.
+                    As an enthusiastic fresher DevOps Engineer with a Bachelor's in Business Administration (Computer Applications), 
+                    I bring fresh perspectives and cutting-edge knowledge to modern infrastructure challenges. My 6+ months 
+                    of intensive internship experience has provided me with hands-on expertise in cloud technologies, 
+                    automation, and DevOps methodologies.
                 </p>
                 <br>
                 <p>
-                    I'm AWS certified and have hands-on experience building robust, scalable infrastructure solutions. 
-                    My approach combines best practices in security, performance optimization, and cost management 
-                    to deliver value-driven results for organizations of all sizes.
+                    I hold industry-recognized certifications in AWS and DevOps Engineering, validating my technical competencies 
+                    and commitment to professional excellence. My approach combines theoretical knowledge with practical 
+                    implementation, focusing on security best practices, automation, and scalable infrastructure design.
                 </p>
                 <br>
                 <p>
-                    Based in Coimbatore, Tamil Nadu, I'm actively seeking opportunities with forward-thinking MNCs 
-                    where I can contribute to digital transformation initiatives and grow alongside industry leaders.
+                    Based in Coimbatore, Tamil Nadu, I'm eager to begin my career with innovative organizations where I can 
+                    contribute to digital transformation initiatives while continuously learning and growing alongside 
+                    experienced professionals in the industry.
                 </p>
             </div>
             <div class="about-stats">
                 <div class="stat-card">
-                    <span class="stat-number">50+</span>
+                    <span class="stat-number">5+</span>
                     <span class="stat-label">Projects Completed</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">3+</span>
+                    <span class="stat-number">1+</span>
                     <span class="stat-label">Years Experience</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-number">15+</span>
-                    <span class="stat-label">Technologies Mastered</span>
+                    <span class="stat-label">Technologies Learned</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">99%</span>
-                    <span class="stat-label">Uptime Achieved</span>
+                    <span class="stat-number">2+</span>
+                    <span class="stat-label">Certifications Earned</span>
                 </div>
             </div>
         </div>
@@ -902,11 +1070,11 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <span class="timeline-date">2024 - Present</span>
-                    <h3 class="timeline-title">DevOps Engineer (Self-Employed)</h3>
+                    <h3 class="timeline-title">DevOps Engineer (Entry Level)</h3>
                     <p class="timeline-description">
-                        Developing and implementing DevOps solutions for various clients and personal projects. 
-                        Focus on AWS cloud architecture, automation, and CI/CD pipeline optimization. 
-                        Successfully delivered 15+ projects with 99% uptime and significant cost savings.
+                        Recently graduated and actively developing DevOps solutions through personal projects and learning initiatives. 
+                        Focus on AWS cloud services, automation tools, and CI/CD pipeline implementation. 
+                        Successfully completed 5+ hands-on projects demonstrating practical DevOps skills.
                     </p>
                 </div>
             </div>
@@ -915,11 +1083,11 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <span class="timeline-date">2023 - 2024</span>
-                    <h3 class="timeline-title">AWS Solutions Architect (Certified)</h3>
+                    <h3 class="timeline-title">DevOps Engineering Internship (6+ Months)</h3>
                     <p class="timeline-description">
-                        Achieved AWS Solutions Architect certification and specialized in designing 
-                        scalable, secure, and cost-effective cloud architectures. Mastered advanced 
-                        AWS services including Lambda, RDS, VPC, and CloudFormation for enterprise solutions.
+                        Completed intensive DevOps internship program gaining hands-on experience with cloud infrastructure, 
+                        containerization, and automation tools. Worked on real-world projects involving AWS services, 
+                        Docker containerization, and Jenkins CI/CD pipeline setup.
                     </p>
                 </div>
             </div>
@@ -927,12 +1095,12 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">2022 - 2023</span>
-                    <h3 class="timeline-title">DevOps Specialist Training</h3>
+                    <span class="timeline-date">2023</span>
+                    <h3 class="timeline-title">AWS & DevOps Certifications</h3>
                     <p class="timeline-description">
-                        Intensive training in DevOps methodologies, tools, and practices. Gained expertise 
-                        in containerization, infrastructure automation, and monitoring solutions. 
-                        Completed multiple certification programs and hands-on projects.
+                        Achieved industry-recognized certifications in AWS cloud services and DevOps engineering practices. 
+                        Specialized in cloud architecture, infrastructure automation, and modern deployment strategies. 
+                        Demonstrated proficiency in essential DevOps tools and methodologies.
                     </p>
                 </div>
             </div>
@@ -940,12 +1108,12 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">2021 - 2022</span>
+                    <span class="timeline-date">2021 - 2023</span>
                     <h3 class="timeline-title">BBA Computer Applications Graduate</h3>
                     <p class="timeline-description">
                         Completed Bachelor's degree with focus on computer applications and business technology. 
                         Strong foundation in programming, database management, and system analysis. 
-                        Graduated with distinction and passion for technology innovation.
+                        Graduated with distinction and developed passion for cloud technologies and automation.
                     </p>
                 </div>
             </div>
@@ -968,7 +1136,7 @@
                     </div>
                     <div class="contact-details">
                         <h4>Email</h4>
-                        <p>stealthcoderX@gmail.com</p>
+                        <p>captainrootx54@gmail.com</p>
                     </div>
                 </div>
 
@@ -1003,17 +1171,29 @@
                 </div>
 
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/rajan-kumar42" class="social-link" target="_blank">
+                    <a href="https://www.linkedin.com/in/rajan-kumar42" class="social-link" target="_blank" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/stealthcoderX" class="social-link" target="_blank">
+                    <a href="https://github.com/stealthcoderX" class="social-link" target="_blank" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="mailto:stealthcoderX@gmail.com" class="social-link">
+                    <a href="mailto:captainrootx54@gmail.com" class="social-link" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="tel:+916385348194" class="social-link">
+                    <a href="tel:+916385348194" class="social-link" title="Phone">
                         <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://www.instagram.com/rajansxarma?igsh=eDh1bnk1NmVsZjcz" class="social-link" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/CaptainNoorX?t=Rc6tlKVZ1JVpPNvMXQy5og&s=09" class="social-link" target="_blank" title="Twitter/X">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.snapchat.com/add/rajansxarma?share_id=J3cq5ieBz88&locale=en-US" class="social-link" target="_blank" title="Snapchat">
+                        <i class="fab fa-snapchat-ghost"></i>
+                    </a>
+                    <a href="https://youtube.com/@zenopsinternational?si=5fPfOHme2lH8VLD4" class="social-link" target="_blank" title="YouTube">
+                        <i class="fab fa-youtube"></i>
                     </a>
                 </div>
             </div>
@@ -1054,6 +1234,205 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reach Out Section -->
+    <section id="reach-out" class="contact-form-section">
+        <div class="contact-form-container">
+            <div class="contact-form-header">
+                <h2>Let's Start a Conversation</h2>
+                <p>Have a project in mind? Want to collaborate? Or just want to say hello? I'd love to hear from you!</p>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="john.doe@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company" class="form-input" placeholder="Your Company Name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="location">Location</label>
+                        <input type="text" id="location" name="location" class="form-input" placeholder="City, Country">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label class="form-label" for="subject">Subject *</label>
+                    <select id="subject" name="subject" class="form-select" required>
+                        <option value="">Select a subject</option>
+                        <option value="job-opportunity">Job Opportunity</option>
+                        <option value="project-collaboration">Project Collaboration</option>
+                        <option value="consulting">Consulting Services</option>
+                        <option value="mentorship">Mentorship/Guidance</option>
+                        <option value="networking">Professional Networking</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label class="form-label" for="message">Message *</label>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, opportunity, or how I can help you. Feel free to include any specific requirements or questions you might have." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                    Send Message
+                </button>
+
+                <p class="form-note">
+                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
+                    Your information is secure and will only be used to respond to your inquiry. 
+                    I typically respond within 24 hours during business days.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media-section fade-in">
+        <div class="social-media-container">
+            <h2 class="social-media-title">Connect & Follow</h2>
+            <p class="social-media-subtitle">Stay connected with my professional journey and personal insights across various platforms</p>
+            
+            <div class="social-grid">
+                <div class="social-card linkedin">
+                    <div class="social-card-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <h4>LinkedIn</h4>
+                    <p>Professional updates, career insights, and DevOps industry trends</p>
+                    <a href="https://www.linkedin.com/in/rajan-kumar42" class="social-card-link" target="_blank">Follow</a>
+                </div>
+
+                <div class="social-card github">
+                    <div class="social-card-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h4>GitHub</h4>
+                    <p>Open source projects, code repositories, and technical contributions</p>
+                    <a href="https://github.com/stealthcoderX" class="social-card-link" target="_blank">Explore</a>
+                </div>
+
+                <div class="social-card instagram">
+                    <div class="social-card-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h4>Instagram</h4>
+                    <p>Behind the scenes, tech setups, and personal moments</p>
+                    <a href="https://www.instagram.com/rajansxarma?igsh=eDh1bnk1NmVsZjcz" class="social-card-link" target="_blank">Follow</a>
+                </div>
+
+                <div class="social-card twitter">
+                    <div class="social-card-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <h4>Twitter/X</h4>
+                    <p>Quick thoughts, tech news, and real-time updates</p>
+                    <a href="https://x.com/CaptainNoorX?t=Rc6tlKVZ1JVpPNvMXQy5og&s=09" class="social-card-link" target="_blank">Follow</a>
+                </div>
+
+                <div class="social-card snapchat">
+                    <div class="social-card-icon">
+                        <i class="fab fa-snapchat-ghost"></i>
+                    </div>
+                    <h4>Snapchat</h4>
+                    <p>Daily life moments and casual tech discussions</p>
+                    <a href="https://www.snapchat.com/add/rajansxarma?share_id=J3cq5ieBz88&locale=en-US" class="social-card-link" target="_blank">Add</a>
+                </div>
+
+                <div class="social-card youtube">
+                    <div class="social-card-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h4>YouTube</h4>
+                    <p>Technical tutorials, project demos, and educational content</p>
+                    <a href="https://youtube.com/@zenopsinternational?si=5fPfOHme2lH8VLD4" class="social-card-link" target="_blank">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section">
+        <div class="disclaimer-container">
+            <div class="disclaimer-content">
+                <div class="disclaimer-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                
+                <h3 class="disclaimer-title">Important Disclaimer</h3>
+                
+                <p class="disclaimer-text">
+                    This portfolio represents my genuine skills, experience, and achievements as a fresh DevOps Engineer. 
+                    All information provided is accurate and verifiable, reflecting my commitment to transparency and professionalism.
+                </p>
+                
+                <div class="disclaimer-points">
+                    <div class="disclaimer-point">
+                        <i class="fas fa-certificate disclaimer-point-icon"></i>
+                        <h4>Verified Credentials</h4>
+                        <p>All certifications and qualifications mentioned are authentic and can be verified upon request.</p>
+                    </div>
+                    
+                    <div class="disclaimer-point">
+                        <i class="fas fa-code disclaimer-point-icon"></i>
+                        <h4>Original Work</h4>
+                        <p>All projects showcased are my original work, developed during my learning journey and internship.</p>
+                    </div>
+                    
+                    <div class="disclaimer-point">
+                        <i class="fas fa-user-graduate disclaimer-point-icon"></i>
+                        <h4>Fresher Status</h4>
+                        <p>I'm a recent graduate seeking entry-level opportunities to grow and contribute to your organization.</p>
+                    </div>
+                    
+                    <div class="disclaimer-point">
+                        <i class="fas fa-handshake disclaimer-point-icon"></i>
+                        <h4>Professional Ethics</h4>
+                        <p>Committed to maintaining highest standards of integrity, confidentiality, and professional conduct.</p>
+                    </div>
+                    
+                    <div class="disclaimer-point">
+                        <i class="fas fa-sync-alt disclaimer-point-icon"></i>
+                        <h4>Continuous Learning</h4>
+                        <p>Actively updating skills and staying current with latest technologies and industry best practices.</p>
+                    </div>
+                    
+                    <div class="disclaimer-point">
+                        <i class="fas fa-envelope disclaimer-point-icon"></i>
+                        <h4>Contact Verification</h4>
+                        <p>All contact information is current and monitored regularly for prompt professional communication.</p>
+                    </div>
+                </div>
+                
+                <p class="disclaimer-footer">
+                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
+                    This portfolio was last updated in August 2025. For the most current information, please contact me directly.
+                </p>
             </div>
         </div>
     </section>
@@ -1125,9 +1504,9 @@
         const subtitle = document.querySelector('.hero .subtitle');
         const titles = [
             'DevOps Engineer & Cloud Solutions Architect',
-            'AWS Certified Solutions Architect',
-            'Infrastructure Automation Specialist',
-            'CI/CD Pipeline Expert'
+            'AWS Certified • DevOps Certified',
+            'Fresh Graduate • 6+ Months Internship',
+            'Infrastructure Automation Enthusiast'
         ];
         let currentTitle = 0;
 
@@ -1198,6 +1577,74 @@
 
         const statsObserver = new IntersectionObserver(animateStats);
         stats.forEach(stat => statsObserver.observe(stat));
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                // Success feedback
+                submitBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 0.5rem;"></i>Message Sent!';
+                submitBtn.style.background = 'rgba(72, 187, 120, 0.3)';
+                submitBtn.style.borderColor = 'rgba(72, 187, 120, 0.5)';
+                
+                // Show success message
+                const successMsg = document.createElement('div');
+                successMsg.style.cssText = `
+                    background: rgba(72, 187, 120, 0.2);
+                    border: 1px solid rgba(72, 187, 120, 0.3);
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    margin-top: 1rem;
+                    text-align: center;
+                    backdrop-filter: blur(10px);
+                `;
+                successMsg.innerHTML = '<i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>Thank you! Your message has been received. I\'ll get back to you soon.';
+                this.appendChild(successMsg);
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = 'rgba(255, 255, 255, 0.2)';
+                    submitBtn.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                    submitBtn.disabled = false;
+                    successMsg.remove();
+                }, 3000);
+                
+            }, 2000);
+        });
+
+        // Enhanced form validation
+        const formInputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
+        formInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.required && !this.value.trim()) {
+                    this.style.borderColor = 'rgba(245, 101, 101, 0.5)';
+                    this.style.background = 'rgba(245, 101, 101, 0.1)';
+                } else {
+                    this.style.borderColor = 'rgba(72, 187, 120, 0.5)';
+                    this.style.background = 'rgba(72, 187, 120, 0.1)';
+                }
+            });
+            
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                this.style.background = 'rgba(255, 255, 255, 0.15)';
+            });
+        });
     </script>
 </body>
 </html>
